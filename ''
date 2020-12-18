@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+
+
+
+
+
+
+
+
+
+
+class Complex
+{
+
+  int a, b;
+	public:
+//Creating a constructor
+//Constructor is a special member of function with same name as th class. 
+//It is used to initilize the object of class. It is Automatically invoked.
+//whenever Object is Created..
+
+  void printData()
+  {
+    cout <<"a is " <<a <<" AND b is " <<b;
+  }
+  Complex(void); //Constructor Declaration
+};
+
+//Complex :: printData();
+Complex :: Complex(void) //Default Constructor
+{
+  a = 10;
+  b = 0;
+}
+
+int main()
+{
+  Complex c;
+  c.printData();
+  return 0;
+}
+
+
+
+
+
+//Constructor properties
+//1. It should be declare in the public section of the Class.
+//2. It Invokes Automatically, during object creation.
+//3. Don't  have return type, They can't return values.
+//4. It can have defaults Arguments.
+//5. We can't refer to the address.
