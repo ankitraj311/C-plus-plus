@@ -1,0 +1,74 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+
+class CWH
+{
+	protected:
+		char title[30];
+		float rating;
+	public:
+		CWH(char *s, flooat r)
+		{
+			strcpy(title,s);
+			rating = r;
+		}
+		virtual void display()
+		{
+
+		}
+};
+
+class CWHVideo : public CHW
+{
+	int videoLength;
+	public:
+		CWHVideo(char *s,float r, int vl) : CWH(s,r)
+		{
+			videoLength=vl;
+
+		}
+		void display()
+		{
+			cout<<"This is an amazing video with title "<<title<<endl;
+			cout<<"Rating : "<<rating " out of 5 is "<<endl;
+			cout<<"Length of this video is : " <<videoLength<<" minutes"<<endl;
+		}
+
+};
+
+
+class CHWText : public CWH
+{
+	int words;
+	public:
+		CWHText(char *s, float r, int wc):CWH(s,r)
+		{
+			words=wc;
+		}
+		void display()
+		{
+			cout<<"This is an amazing Tutorial with title "<<title<<endl;
+			cout<<"Rating of this text tutorial : "<<rating " out of 5 is "<<endl;
+			cout<<"No of word in this text tutorial is : " <<words<<" words"<<endl;
+		}
+	
+};
+
+
+int main()
+{
+	char *title=new char[30];
+	float rating, vlen;
+	int words;
+
+	//for code with Harry Video
+	title = "Django Tutorial";
+	vlen = 4.56;
+	rating = 4.89;
+	CHWVideo djvideo(title, rating, vlen);
+	djvideo.display();
+
+}
+

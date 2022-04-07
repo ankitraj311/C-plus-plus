@@ -1,0 +1,90 @@
+#include<iostream>
+using namespace std;
+
+/*
+ * Case 1:
+ * Class B : public A
+ * {
+ * 	//order of execution of constructor -> A() then B()
+ * }
+ *
+ * Case 2:
+ *
+ * Class A : public B, public C
+ * {
+ * 	//order of execution of constructor -> B() then C() then A()
+ * }
+ *
+ * Case 3:
+ *
+ * Class A : public B, virtual public C
+ * {
+ * 	//order of execution of constructor is C() then B(), A()
+ * }
+ *
+ * For more clearence refer previous video
+ *
+ *
+ */
+
+class base1
+{
+	int data1;
+	public:
+		base1(int i)
+		{
+			data1=i;
+			cout<<"Base class constructor called"<<endl;
+		}
+		void printNumberBase1(void)
+		{
+			cout<<"The Value od data1 is "<<data1<<endl;
+		}
+};
+
+
+
+class base2
+{
+	int data2;
+	public:
+		base2(int i)
+		{
+			data2=i;
+			cout<<"Base class constructor called"<<endl;
+		}
+		void printNumberBase2(void)
+		{
+			cout<<"The Value od data1 is "<<data2<<endl;
+		}
+};
+
+
+class Derived : public base1, public base2
+{
+	int derived_data_1, derived_data_2;
+	public:
+		Derived(int a, int b, int c, int d) : base1(a) : base2(b)
+		{
+			derived_data_1 = c;
+			derived_data_2 = d;
+			cout<<"Derived class Called"<<endl;
+		}
+		void printDataDerived(void)
+		{
+			cout<<"The value of derived_data_1 is "<<derived_data_1<<endl;
+			cout<<"The value of derived_data_2 is "<<derived_data_2<<endl;
+		}
+};
+
+int main()
+{
+	Derived d1(1,2,3,4);
+		d1.printNumberBase1();
+		d1.printNumberBase2();
+		d1.printDataDerived();
+		return 0;
+}
+
+
+

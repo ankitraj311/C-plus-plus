@@ -65,14 +65,23 @@ class result : public exam
 int main()
 {
 
-	result ankit;
-	ankit.set_roll_number(14029);
-			ankit.get_roll_number();
-	ankit.set_marks(90.9,90.9);
-			ankit.get_marks();
-	ankit.display();
+	result ankit; //ankit object is from result class
+	ankit.set_roll_number(14029); //by ankit object we are accesing set_roll_number from staudent class
+	ankit.get_roll_number(); //by ankit object we are accesing get_roll_number from staudent class
+	ankit.set_marks(90.9,90.9); //by ankit object we are acesing setMarks
+	ankit.get_marks(); // by ankit object from result class we are accesing get marks from exam class
+	ankit.display();//
 	return 0;
 
 }
 
 
+
+
+
+/*
+ * Notes
+ * 1. If we are inheriting B from A and C from B {A --> B --> C}
+ * 2. A is Base class of B and B is base class for C
+ * 3. A --> B --> C is inheritance Path.
+ */
